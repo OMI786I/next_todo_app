@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import React from "react";
 
 const Navbar = () => {
@@ -32,6 +32,16 @@ const Navbar = () => {
       <div className="navbar-end">
         {session ? <a className="btn">{session.user.name}</a> : ""}
         {session ? <a className="btn">{session.user.email}</a> : ""}
+        {session ? (
+          <button
+            className="btn btn-error text-white"
+            onClick={() => signOut()}
+          >
+            Logout
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
