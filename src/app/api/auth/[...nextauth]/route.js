@@ -21,6 +21,12 @@ const handler = NextAuth({
           required: true,
           placeholder: "your email",
         },
+        username: {
+          label: "User Name",
+          type: "text",
+          required: true,
+          placeholder: "Your name",
+        },
       },
       async authorize(credentials) {
         if (!credentials) {
